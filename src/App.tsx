@@ -15,56 +15,45 @@ function App() {
   const games = [
     {
       id: 1,
-      title: "Neon Odyssey",
-      genre: "Cyberpunk RPG",
-      description: "An immersive cyberpunk adventure set in a dystopian future where technology and humanity collide.",
-      image: "https://images.pexels.com/photos/2047905/pexels-photo-2047905.jpeg?auto=compress&cs=tinysrgb&w=800",
-      status: "Released",
-      platforms: ["PC", "PlayStation", "Xbox"]
-    },
-    {
-      id: 2,
-      title: "Quantum Shift",
-      genre: "Sci-Fi Puzzle",
-      description: "Mind-bending puzzle game where players manipulate quantum mechanics to solve interdimensional challenges.",
-      image: "https://images.pexels.com/photos/163064/play-stone-network-networked-interactive-163064.jpeg?auto=compress&cs=tinysrgb&w=800",
-      status: "Coming Soon",
-      platforms: ["PC", "Mobile"]
-    },
-    {
-      id: 3,
-      title: "Mythic Realms",
-      genre: "Fantasy MMORPG",
-      description: "Massive multiplayer online RPG featuring epic quests, magical creatures, and endless exploration.",
-      image: "https://images.pexels.com/photos/442576/pexels-photo-442576.jpeg?auto=compress&cs=tinysrgb&w=800",
+      title: "Floatlands",
+      genre: "Dreamlike 2D Pixel Adventure",
+      description: "Floatlands is a dreamlike platformer where Pedro journeys across floating worlds to rescue Sue — and uncover whether his reality is real… or just a dream.",
+      image: "https://images.pexels.com/photos/1323712/pexels-photo-1323712.jpeg?auto=compress&cs=tinysrgb&w=800",
       status: "In Development",
-      platforms: ["PC", "Mobile"]
+      platforms: ["PC", "Mobile"],
+      developmentLink: "#"
     }
   ];
 
   const teamMembers = [
     {
-      name: "Alex Chen",
-      role: "Creative Director",
-      bio: "Visionary leader with 10+ years in game design and storytelling.",
+      name: "Sasath Ramawikrama",
+      role: "Project Manager / Jack of all Trades",
+      bio: "Leading the vision and coordinating our dream team.",
       avatar: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=300"
     },
     {
-      name: "Maya Rodriguez",
-      role: "Lead Developer",
-      bio: "Full-stack developer specializing in game engines and optimization.",
+      name: "Rusith Heshan Welisara",
+      role: "Co Project Manager / Jack of all Trades",
+      bio: "Co-leading development and bringing ideas to life.",
       avatar: "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=300"
     },
     {
-      name: "Kai Nakamura",
-      role: "Art Director",
-      bio: "Master of visual storytelling and immersive world creation.",
+      name: "Thenura Sathmira",
+      role: "Artist / Level Designer",
+      bio: "Crafting the visual magic of our floating worlds.",
       avatar: "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=300"
     },
     {
-      name: "Jordan Smith",
-      role: "Sound Designer",
-      bio: "Audio wizard crafting immersive soundscapes and epic soundtracks.",
+      name: "Janindu Sri Damsara",
+      role: "Sound Designer / Level Designer / Trailer",
+      bio: "Creating the audio landscapes that bring dreams to life.",
+      avatar: "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=300"
+    },
+    {
+      name: "Wenusha Sri Kawithma",
+      role: "Artist",
+      bio: "Painting the pixel worlds where dreams come alive.",
       avatar: "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=300"
     }
   ];
