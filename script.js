@@ -124,12 +124,60 @@ function typeWriter(element, text, speed = 100) {
 // Initialize typing effect when page loads
 document.addEventListener('DOMContentLoaded', () => {
     const tagline = document.querySelector('.hero-tagline');
-    const originalText = tagline.textContent;
+    if (tagline) {
+        const originalText = tagline.textContent;
+        
+        // Delay the typing effect slightly
+        setTimeout(() => {
+            typeWriter(tagline, originalText, 50);
+        }, 1500);
+    }
+});
+
+// Add smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+
+// Add loading animation for YouTube iframe
+document.addEventListener('DOMContentLoaded', () => {
+    const iframe = document.querySelector('.video-wrapper iframe');
+    if (iframe) {
+        iframe.addEventListener('load', () => {
+            iframe.style.opacity = '1';
+        });
+    }
+});
+
+// Add click tracking for external links (optional analytics)
+document.querySelectorAll('a[target="_blank"]').forEach(link => {
+    link.addEventListener('click', function() {
+        console.log('External link clicked:', this.href);
+        // Add analytics tracking here if needed
+    });
+});
+
+// Enhanced hover effects for control items
+document.querySelectorAll('.control-item').forEach(item => {
+    item.addEventListener('mouseenter', function() {
+        const icon = this.querySelector('.control-icon');
+        icon.style.transform = 'scale(1.2) rotate(5deg)';
+        icon.style.transition = 'transform 0.3s ease';
+    });
     
-    // Delay the typing effect slightly
-    setTimeout(() => {
-        typeWriter(tagline, originalText, 80);
-    }, 1000);
+    item.addEventListener('mouseleave', function() {
+        const icon = this.querySelector('.control-icon');
+        icon.style.transform = 'scale(1) rotate(0deg)';
+    });
 });
 
 // Add click effects to game cards
