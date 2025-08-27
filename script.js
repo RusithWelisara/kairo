@@ -94,6 +94,32 @@ function createFloatingParticles() {
 // Initialize particles when page loads
 document.addEventListener('DOMContentLoaded', createFloatingParticles);
 
+// Animate timeline items on scroll
+const timelineObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateX(0)';
+        }
+    });
+}, { threshold: 0.3 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    timelineItems.forEach((item, index) => {
+        item.style.opacity = '0';
+        item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        
+        if (index % 2 === 0) {
+            item.style.transform = 'translateX(-50px)';
+        } else {
+            item.style.transform = 'translateX(50px)';
+        }
+        
+        timelineObserver.observe(item);
+    });
+});
+
 // Add glow effect to buttons on hover
 document.querySelectorAll('.btn').forEach(btn => {
     btn.addEventListener('mouseenter', function() {
