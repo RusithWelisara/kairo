@@ -3,7 +3,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { Play, Github, ChevronLeft, ChevronRight } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 // Import Floatlands screenshots
 import floatlands1 from '../assests/games/floatlands/0S0uGA.png';
@@ -45,6 +45,18 @@ const Games = () => {
     // GameCard component with slideshow
     const GameCard = ({ game, index }: { game: typeof games[0], index: number }) => {
         const [currentSlide, setCurrentSlide] = useState(0);
+        const [isPaused, setIsPaused] = useState(false);
+
+        // Auto-advance slideshow
+        useEffect(() => {
+            if (isPaused) return;
+
+            const interval = setInterval(() => {
+                setCurrentSlide((prev) => (prev + 1) % game.screenshots.length);
+            }, 3000); // Change slide every 3 seconds
+
+            return () => clearInterval(interval);
+        }, [currentSlide, isPaused, game.screenshots.length]);
 
         const nextSlide = () => {
             setCurrentSlide((prev) => (prev + 1) % game.screenshots.length);
@@ -64,7 +76,11 @@ const Games = () => {
                 className="bg-gray-800/50 rounded-xl overflow-hidden border border-gray-700 hover:border-cyan-400/50 shadow-lg flex flex-col"
             >
                 {/* Screenshot Slideshow */}
-                <div className="relative h-48 overflow-hidden group">
+                <div
+                    className="relative h-48 overflow-hidden group"
+                    onMouseEnter={() => setIsPaused(true)}
+                    onMouseLeave={() => setIsPaused(false)}
+                >
                     <AnimatePresence mode="wait">
                         <motion.img
                             key={currentSlide}
