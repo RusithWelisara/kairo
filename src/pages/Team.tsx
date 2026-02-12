@@ -6,19 +6,19 @@ const Team = () => {
     const teamMembers = [
         {
             name: "Janindu Sri Damsara",
-            role: "Sound Designer / Level Designer / Trailer",
+            role: "Founder / Sound Designer / Level Designer",
             bio: "Creating the audio landscapes that bring dreams to life.",
             avatar: "src/assests/members/Janidu Damsara.jpg"
         },
         {
             name: "Sasath Ramawikrama",
-            role: "Director",
+            role: "Co-Founder / Director",
             bio: "Leading the vision and coordinating our dream team.",
             avatar: "./src/assests/members/Sasath Ramawikrama.jpg"
         },
         {
             name: "Rusith Heshan Welisara",
-            role: "Lead Programmer",
+            role: "Co-Founder / Lead Programmer",
             bio: "Crafting the core mechanics and technical excellence of our games.",
             avatar: "src/assests/members/Rusith Welisara.jpg"
         },
@@ -27,12 +27,6 @@ const Team = () => {
             role: "Project Manager",
             bio: "Ensuring our dream worlds are built on time and with magic.",
             avatar: "src/assests/members/Thenura Sathmira.jpg"
-        },
-        {
-            name: "Wenusha Sri Kawithma",
-            role: "Artist",
-            bio: "Painting the pixel worlds where dreams come alive.",
-            avatar: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=300"
         },
         {
             name: "Lalindu Oshana",
