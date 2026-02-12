@@ -43,7 +43,7 @@ const Team = () => {
             avatar: "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=300"
         },
         {
-            name: "SuperBro",
+            name: "@SuperBroooo",
             role: "Artist",
             bio: "Adding visual flair and character to our pixelated adventures.",
             avatar: superbroPhoto
