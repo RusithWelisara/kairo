@@ -5,7 +5,7 @@ import { Mail, MessageSquare, Send } from 'lucide-react';
 
 const Contact = () => {
     return (
-        <div className="py-20 px-6 max-w-4xl mx-auto">
+        <div className="min-h-screen py-20 px-6 max-w-4xl mx-auto">
             <div className="text-center mb-16">
                 <motion.h1
                     initial={{ opacity: 0, y: 20 }}

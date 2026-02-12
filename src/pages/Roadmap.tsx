@@ -25,7 +25,7 @@ const Roadmap = () => {
     ];
 
     return (
-        <div className="py-20 px-6 max-w-4xl mx-auto">
+        <div className="min-h-screen py-20 px-6 max-w-4xl mx-auto">
             <motion.h1
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
