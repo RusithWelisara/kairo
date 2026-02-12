@@ -8,6 +8,7 @@ import janinduPhoto from '../assests/members/Janidu Damsara.jpg';
 import sasathPhoto from '../assests/members/Sasath Ramawikrama.jpg';
 import rusithPhoto from '../assests/members/Rusith Welisara.jpg';
 import thenuraPhoto from '../assests/members/Thenura Sathmira.jpg';
+import superbroPhoto from '../assests/members/SuperBro.jpg';
 
 const Team = () => {
     const teamMembers = [
@@ -45,7 +46,7 @@ const Team = () => {
             name: "SuperBro",
             role: "Artist",
             bio: "Adding visual flair and character to our pixelated adventures.",
-            avatar: "https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=300"
+            avatar: superbroPhoto
         }
     ];
 

@@ -1,6 +1,7 @@
 
 
 import { motion } from 'framer-motion';
+import groupPhoto from '../assests/members/Group Photo.jpg';
 
 const About = () => {
     return (
@@ -20,8 +21,8 @@ const About = () => {
                     transition={{ delay: 0.2 }}
                 >
                     <img
-                        src="https://images.pexels.com/photos/3165335/pexels-photo-3165335.jpeg?auto=compress&cs=tinysrgb&w=800"
-                        alt="Team Kairo working"
+                        src={groupPhoto}
+                        alt="Team Kairo Group Photo"
                         className="rounded-xl shadow-2xl border border-gray-700"
                     />
                 </motion.div>
