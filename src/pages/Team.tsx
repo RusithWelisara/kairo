@@ -5,28 +5,28 @@ import { motion } from 'framer-motion';
 const Team = () => {
     const teamMembers = [
         {
+            name: "Janindu Sri Damsara",
+            role: "Sound Designer / Level Designer / Trailer",
+            bio: "Creating the audio landscapes that bring dreams to life.",
+            avatar: "src/assests/members/Janidu Damsara.jpg"
+        },
+        {
             name: "Sasath Ramawikrama",
             role: "Director",
             bio: "Leading the vision and coordinating our dream team.",
-            avatar: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=300"
+            avatar: "./src/assests/members/Sasath Ramawikrama.jpg"
         },
         {
             name: "Rusith Heshan Welisara",
             role: "Lead Programmer",
             bio: "Crafting the core mechanics and technical excellence of our games.",
-            avatar: "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=300"
+            avatar: "src/assests/members/Rusith Welisara.jpg"
         },
         {
             name: "Thenura Sathmira",
             role: "Project Manager",
             bio: "Ensuring our dream worlds are built on time and with magic.",
-            avatar: "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=300"
-        },
-        {
-            name: "Janindu Sri Damsara",
-            role: "Sound Designer / Level Designer / Trailer",
-            bio: "Creating the audio landscapes that bring dreams to life.",
-            avatar: "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=300"
+            avatar: "src/assests/members/Thenura Sathmira.jpg"
         },
         {
             name: "Wenusha Sri Kawithma",
