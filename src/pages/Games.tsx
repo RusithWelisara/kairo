@@ -27,7 +27,8 @@ const Games = () => {
             screenshots: [floatlands1, floatlands2, floatlands3, floatlands4],
             status: "Finished",
             platforms: ["PC", "Mobile"],
-            link: "https://team-kairo.itch.io/floatlands"
+            link: "https://team-kairo.itch.io/floatlands",
+            github: "https://github.com/KingSalagoya/floatlands"
         },
         {
             id: 2,
