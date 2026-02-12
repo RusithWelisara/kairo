@@ -1,6 +1,13 @@
 
 
+
 import { motion } from 'framer-motion';
+
+// Import team member photos
+import janinduPhoto from '../assests/members/Janidu Damsara.jpg';
+import sasathPhoto from '../assests/members/Sasath Ramawikrama.jpg';
+import rusithPhoto from '../assests/members/Rusith Welisara.jpg';
+import thenuraPhoto from '../assests/members/Thenura Sathmira.jpg';
 
 const Team = () => {
     const teamMembers = [
@@ -8,25 +15,25 @@ const Team = () => {
             name: "Janindu Sri Damsara",
             role: "Founder / Sound Designer / Level Designer",
             bio: "Creating the audio landscapes that bring dreams to life.",
-            avatar: "src/assests/members/Janidu Damsara.jpg"
+            avatar: janinduPhoto
         },
         {
             name: "Sasath Ramawikrama",
             role: "Co-Founder / Director",
             bio: "Leading the vision and coordinating our dream team.",
-            avatar: "./src/assests/members/Sasath Ramawikrama.jpg"
+            avatar: sasathPhoto
         },
         {
             name: "Rusith Heshan Welisara",
             role: "Co-Founder / Lead Programmer",
             bio: "Crafting the core mechanics and technical excellence of our games.",
-            avatar: "src/assests/members/Rusith Welisara.jpg"
+            avatar: rusithPhoto
         },
         {
             name: "Thenura Sathmira",
             role: "Project Manager",
             bio: "Ensuring our dream worlds are built on time and with magic.",
-            avatar: "src/assests/members/Thenura Sathmira.jpg"
+            avatar: thenuraPhoto
         },
         {
             name: "Lalindu Oshana",
