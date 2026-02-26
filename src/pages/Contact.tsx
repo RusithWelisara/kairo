@@ -1,75 +1,99 @@
-
-
 import { motion } from 'framer-motion';
-import { Mail, MessageSquare, Send } from 'lucide-react';
+import { Mail, MessageSquare, Send, ArrowUpRight } from 'lucide-react';
 
 const Contact = () => {
     return (
-        <div className="min-h-screen py-20 px-6 max-w-4xl mx-auto">
-            <div className="text-center mb-16">
+        <div className="min-h-screen pt-32 pb-20 px-6 max-w-[1200px] mx-auto">
+            {/* Header */}
+            <div className="max-w-3xl mb-20">
                 <motion.h1
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent"
+                    className="text-5xl md:text-7xl font-bold mb-6 text-white tracking-tight font-serif"
                 >
-                    Get In Touch
+                    Get in Touch
                 </motion.h1>
-                <p className="text-xl text-gray-400">
+                <motion.p
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.1 }}
+                    className="text-lg md:text-xl text-gray-400 leading-relaxed font-light"
+                >
                     Have a question, feedback, or just want to say hi? We'd love to hear from you.
-                </p>
+                </motion.p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-12">
+            <div className="grid lg:grid-cols-5 gap-16">
+                {/* Contact Info */}
                 <motion.div
-                    initial={{ opacity: 0, x: -30 }}
-                    animate={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 }}
-                    className="space-y-8"
+                    className="lg:col-span-2 space-y-6"
                 >
-                    <div className="flex items-start space-x-4">
-                        <div className="p-3 bg-gray-800 rounded-lg text-cyan-400">
-                            <Mail size={24} />
+                    <div className="bg-gray-900 rounded-2xl p-6 border border-white/5 hover:border-white/10 shadow-soft transition-all duration-300 group">
+                        <div className="flex items-center gap-4 mb-3">
+                            <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-white/20 transition-colors">
+                                <Mail size={18} className="text-gray-300" />
+                            </div>
+                            <h3 className="text-base font-semibold text-white font-serif">Email Us</h3>
                         </div>
-                        <div>
-                            <h3 className="text-lg font-bold text-white">Email Us</h3>
-                            <p className="text-gray-400 mb-1">For general inquiries and support</p>
-                            <a href="mailto:hello@kairogames.com" className="text-cyan-400 hover:text-cyan-300">hello@kairogames.com</a>
-                        </div>
+                        <p className="text-gray-500 text-sm mb-3">For general inquiries and support</p>
+                        <a href="mailto:developers.kairo@gmail.com" className="inline-flex items-center gap-1 text-sm text-white hover:text-gray-300 transition-colors font-medium group/link">
+                            developers.kairo@gmail.com
+                            <ArrowUpRight size={14} className="opacity-0 group-hover/link:opacity-100 transition-opacity" />
+                        </a>
                     </div>
 
-                    <div className="flex items-start space-x-4">
-                        <div className="p-3 bg-gray-800 rounded-lg text-purple-400">
-                            <MessageSquare size={24} />
+                    <div className="bg-gray-900 rounded-2xl p-6 border border-white/5 hover:border-white/10 shadow-soft transition-all duration-300 group">
+                        <div className="flex items-center gap-4 mb-3">
+                            <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-white/20 transition-colors">
+                                <MessageSquare size={18} className="text-gray-300" />
+                            </div>
+                            <h3 className="text-base font-semibold text-white font-serif">Community</h3>
                         </div>
-                        <div>
-                            <h3 className="text-lg font-bold text-white">Community</h3>
-                            <p className="text-gray-400 mb-1">Join the conversation on Discord</p>
-                            <a href="#" className="text-purple-400 hover:text-purple-300">Join Server</a>
-                        </div>
+                        <p className="text-gray-500 text-sm mb-3">Join the conversation on Discord</p>
+                        <a href="#" className="inline-flex items-center gap-1 text-sm text-white hover:text-gray-300 transition-colors font-medium group/link">
+                            Join Server
+                            <ArrowUpRight size={14} className="opacity-0 group-hover/link:opacity-100 transition-opacity" />
+                        </a>
                     </div>
                 </motion.div>
 
+                {/* Contact Form */}
                 <motion.form
-                    initial={{ opacity: 0, x: 30 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.4 }}
-                    className="space-y-4 bg-gray-800/30 p-6 rounded-xl border border-gray-700"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 }}
+                    className="lg:col-span-3 bg-gray-900 rounded-2xl p-8 border border-white/5 shadow-soft space-y-5"
                     onSubmit={(e) => e.preventDefault()}
                 >
                     <div>
-                        <label className="block text-sm font-medium text-gray-400 mb-1">Name</label>
-                        <input type="text" className="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-cyan-500 transition-colors" placeholder="Your Name" />
+                        <label className="block text-xs font-medium text-gray-400 mb-2 uppercase tracking-wider">Name</label>
+                        <input
+                            type="text"
+                            className="w-full bg-gray-950 border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-white/30 focus:bg-gray-900 transition-all duration-300"
+                            placeholder="Your name"
+                        />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium text-gray-400 mb-1">Email</label>
-                        <input type="email" className="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-cyan-500 transition-colors" placeholder="your@email.com" />
+                        <label className="block text-xs font-medium text-gray-400 mb-2 uppercase tracking-wider">Email</label>
+                        <input
+                            type="email"
+                            className="w-full bg-gray-950 border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-white/30 focus:bg-gray-900 transition-all duration-300"
+                            placeholder="you@example.com"
+                        />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium text-gray-400 mb-1">Message</label>
-                        <textarea rows={4} className="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-cyan-500 transition-colors" placeholder="What's on your mind?"></textarea>
+                        <label className="block text-xs font-medium text-gray-400 mb-2 uppercase tracking-wider">Message</label>
+                        <textarea
+                            rows={5}
+                            className="w-full bg-gray-950 border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-white/30 focus:bg-gray-900 transition-all duration-300 resize-none"
+                            placeholder="What's on your mind?"
+                        ></textarea>
                     </div>
-                    <button className="w-full bg-gradient-to-r from-cyan-600 to-purple-600 hover:from-cyan-500 hover:to-purple-500 text-white font-bold py-3 rounded-lg transition-all flex items-center justify-center gap-2">
-                        <Send size={18} /> Send Message
+                    <button className="w-full bg-white text-gray-950 font-semibold py-3 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 text-sm shadow-soft hover:shadow-soft-lg transform hover:-translate-y-0.5 hover:bg-gray-100">
+                        <Send size={16} /> Send Message
                     </button>
                 </motion.form>
             </div>
