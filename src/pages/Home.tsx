@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Play, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+import logo from '../assests/logo.jpg';
 
 const Home = () => {
     return (
@@ -24,7 +25,7 @@ const Home = () => {
                             className="mb-8"
                         >
                             <div className="w-20 h-20 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden shadow-soft-lg">
-                                <img src='./src/assests/logo.jpg' alt="KAIRO Logo" className="w-full h-full object-cover opacity-90" />
+                                <img src={logo} alt="KAIRO Logo" className="w-full h-full object-cover opacity-90" />
                             </div>
                         </motion.div>
 
