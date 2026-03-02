@@ -99,7 +99,7 @@ const Home = () => {
                                     key={currentSlide}
                                     src={meetupImages[currentSlide]}
                                     alt={`Meetup photo ${currentSlide + 1}`}
-                                    className="rounded-xl w-full h-auto object-cover opacity-90 transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                                    className="rounded-xl w-full h-auto max-h-[400px] object-cover opacity-90 transition-transform duration-700 ease-out group-hover:scale-[1.02]"
                                     initial={{ opacity: 0 }}
                                     animate={{ opacity: 1 }}
                                     exit={{ opacity: 0 }}
