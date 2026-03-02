@@ -6,13 +6,13 @@ const Roadmap = () => {
         {
             quarter: "Q3 2025",
             title: "The Beginning",
-            desc: "Kairo Games is formed. Prototyping Floatlands for EXE 2025.",
+            desc: "Kairo Indie Game Studio is formed. Prototyping Floatlands for EXE 2025.",
             status: "completed"
         },
         {
             quarter: "Q4 2025",
-            title: "Floatlands Release",
-            desc: "Floatlands successfully launched on multiple platforms to positive community reception.",
+            title: "EXE 2025 & Recognition",
+            desc: "Floatlands got recognized for its innovative design and gameplay. ",
             status: "completed"
         },
         {

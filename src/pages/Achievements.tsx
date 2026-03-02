@@ -6,7 +6,7 @@ const Achievements = () => {
         {
             id: 1,
             title: "EXE 2025 — Entry",
-            description: "Successfully submitted Floatlands to the EXE 2025 Game Jam.",
+            description: "Successfully submitted Floatlands to the EXE 2025 Game Jam and got awarded for 'Best Audio & Visuals' and received 'Overall 2nd Place'.",
             icon: <Trophy className="w-5 h-5 text-gray-300" />,
             date: "2025"
         },
@@ -16,6 +16,13 @@ const Achievements = () => {
             description: "Recognized as one of the top up-and-coming student indie teams in Sri Lanka.",
             icon: <Star className="w-5 h-5 text-gray-300" />,
             date: "2025"
+        },
+        {
+            id: 3,
+            title: "First Meetup — Concluded",
+            description: "Successfully concluded our first team meetup, strengthening collaboration and team spirit.",
+            icon: <Trophy className="w-5 h-5 text-gray-300" />,
+            date: "2026"
         },
     ];
 

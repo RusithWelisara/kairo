@@ -1,9 +1,32 @@
 import { Link } from 'react-router-dom';
 import { Play, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
 import logo from '../assests/logo.jpg';
+// Meetup images
+import meetup1 from '../assests/Meetup_1/1.jpeg';
+import meetup2 from '../assests/Meetup_1/2.jpeg';
+import meetup3 from '../assests/Meetup_1/3.jpeg';
+import meetup4 from '../assests/Meetup_1/4.jpeg';
+import meetup5 from '../assests/Meetup_1/5.jpeg';
+import meetup6 from '../assests/Meetup_1/6.jpeg';
+import meetup7 from '../assests/Meetup_1/7.jpeg';
+import meetup8 from '../assests/Meetup_1/8.jpeg';
+import meetup9 from '../assests/Meetup_1/9.jpeg';
+import meetup10 from '../assests/Meetup_1/10.jpeg';
+import meetup11 from '../assests/Meetup_1/11.jpeg';
+
+const meetupImages = [meetup1, meetup2, meetup3, meetup4, meetup5, meetup6, meetup7, meetup8, meetup9, meetup10, meetup11];
 
 const Home = () => {
+    const [currentSlide, setCurrentSlide] = useState(0);
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentSlide((prev) => (prev + 1) % meetupImages.length);
+        }, 3500);
+        return () => clearInterval(interval);
+    }, []);
+
     return (
         <div className="relative bg-gray-950">
             {/* Hero Section */}
@@ -60,7 +83,7 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* Featured Game Section */}
+            {/* Featured Meetup Section */}
             <section className="py-32 px-6 border-t border-white/5 bg-gray-900/30">
                 <div className="max-w-6xl mx-auto">
                     <div className="flex flex-col lg:flex-row items-center gap-16">
@@ -72,12 +95,27 @@ const Home = () => {
                             className="flex-1 w-full"
                         >
                             <div className="relative rounded-2xl overflow-hidden shadow-soft-xl border border-white/5 bg-gray-950 flex items-center justify-center p-2 group">
-                                <img
-                                    src="https://images.pexels.com/photos/1323712/pexels-photo-1323712.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                                    alt="Floatlands"
+                                <motion.img
+                                    key={currentSlide}
+                                    src={meetupImages[currentSlide]}
+                                    alt={`Meetup photo ${currentSlide + 1}`}
                                     className="rounded-xl w-full h-auto object-cover opacity-90 transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    exit={{ opacity: 0 }}
+                                    transition={{ duration: 0.5 }}
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-gray-950/80 via-transparent to-transparent pointer-events-none" />
+                                {/* Slide Indicators */}
+                                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5 z-20">
+                                    {meetupImages.map((_, idx) => (
+                                        <button
+                                            key={idx}
+                                            onClick={() => setCurrentSlide(idx)}
+                                            className={`h-1.5 rounded-full transition-all duration-300 ${idx === currentSlide ? 'bg-white w-5' : 'bg-white/40 hover:bg-white/70 w-1.5'}`}
+                                        />
+                                    ))}
+                                </div>
                             </div>
                         </motion.div>
 
@@ -91,19 +129,19 @@ const Home = () => {
                             <div>
                                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-6">
                                     <span className="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
-                                    <span className="text-xs font-medium text-gray-300 tracking-wide uppercase">Featured Title</span>
+                                    <span className="text-xs font-medium text-gray-300 tracking-wide uppercase">Featured Meetup</span>
                                 </div>
-                                <h2 className="text-4xl md:text-5xl font-serif text-white tracking-tight mb-4 leading-tight">Floatlands</h2>
+                                <h2 className="text-4xl md:text-5xl font-serif text-white tracking-tight mb-4 leading-tight">First Team Meetup Concluded!</h2>
                                 <p className="text-gray-400 text-lg leading-relaxed font-light">
-                                    Our dreamlike platformer is now fully released. Journey across drifting ecosystems with Pedro to rescue Sue, uncover the truth behind the fragmentation, and master precise traversal mechanics.
+                                    We successfully held our very first team meetup in 2026! It was a day of collaboration, creativity, and team spirit—laying the foundation for even greater achievements together.
                                 </p>
                             </div>
 
-                            <a href="https://team-kairo.itch.io/floatlands" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-white font-medium group hover:text-gray-300 transition-colors">
+                            <a href="#" className="inline-flex items-center gap-2 text-white font-medium group hover:text-gray-300 transition-colors">
                                 <span className="bg-white/10 rounded-full p-2.5 group-hover:bg-white/20 transition-colors">
                                     <Play size={16} className="fill-current" />
                                 </span>
-                                Watch the Trailer
+                                See Meetup Highlights
                             </a>
                         </motion.div>
                     </div>
