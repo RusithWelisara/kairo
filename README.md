@@ -34,29 +34,53 @@ Successfully concluded our first team meetup, strengthening collaboration and te
 
 ## The Team
 
-> The minds behind KAIRO. Students by day, game developers by night — united by a shared passion for crafting immersive worlds.
+*The minds behind KAIRO. Students by day, game developers by night — united by a shared passion for crafting immersive worlds.*
 
 
-Janindu Sri Damsara
+***Janindu Sri Damsara***
 > Founder / Sound Designer / Level Designer
 
 
-Sasath Ramawikrama
+***Sasath Ramawikrama***
 > Co-Founder / Director
 
 
-Rusith Heshan Welisara
+***Rusith Heshan Welisara***
 > Co-Founder / Lead Programmer
 
 
-Thenura Sathmira
+***Thenura Sathmira***
 > Project Manager
 
 
-Lalindu Oshana
+***Lalindu Oshana***
 > Story Teller
 
 
-SuperBroooo
+***SuperBroooo***
 > Artist
 
+
+## Our Journey
+
+> From a game jam entry to a fully-fledged studio — here's how we got here and where we're headed.
+
+### Q3 2025
+**The Beginning**
+*Kairo Indie Game Studio is formed. Prototyping Floatlands for EXE 2025.*
+
+### Q4 2025
+**EXE 2025 & Recognition**
+*Floatlands got recognized for its innovative design and gameplay.*
+
+### 2026
+**Expansion**
+*New game concepts, expanded team, and working towards a full commercial release.*
+
+
+### Get in Touch
+
+*Have a question, feedback, or just want to say hi? We'd love to hear from you.*
+
+***Email Us***
+> developers.kairo@gmail.com
