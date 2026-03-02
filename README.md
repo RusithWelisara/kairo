@@ -1,7 +1,7 @@
 # KAIRO Indie Game Studio
 > Interactive Worlds, Crafted with Precision.
 
-KAIRO Games is an independent studio dedicated to building atmospheric, systems-driven experiences with meticulous attention to detail.
+***KAIRO*** is an independent studio dedicated to building atmospheric, systems-driven experiences with meticulous attention to detail.
 
 
 ## About Us
