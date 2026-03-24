@@ -24,7 +24,7 @@ const Games = () => {
             screenshots: [floatlands1, floatlands2, floatlands3, floatlands4],
             status: "Game Jam Product",
             platforms: ["PC"],
-            link: "https://team-kairo.itch.io/floatlands",
+            playLink: "https://team-kairo.itch.io/floatlands",
             github: "https://github.com/KingSalagoya/floatlands"
         },
         {
@@ -35,8 +35,19 @@ const Games = () => {
             screenshots: [cursed1, cursed2, cursed3, cursed4],
             status: "Game Jam Product",
             platforms: ["PC"],
-            link: "https://team-kairo.itch.io/the-cursed-adventure",
+            playLink: "https://team-kairo.itch.io/the-cursed-adventure",
             github: "https://github.com/KingSalagoya/The-Cursed-Adventure"
+        },
+        {
+            id: 3,
+            title: "Runes n Dungeons",
+            genre: "Dungeon Crawler RPG",
+            description: "A new KAIRO project where players explore rune-powered dungeons, battle dangerous enemies, and evolve their build as they descend deeper.",
+            screenshots: [cursed1],
+            status: "In Development",
+            platforms: ["PC"],
+            milestone: "Current milestone: core combat and dungeon loop prototype",
+            github: "https://github.com/KingSalagoya/Runes-n-Dungeons"
         }
     ];
 
@@ -75,17 +86,21 @@ const Games = () => {
     // Collapsible state
     const [open, setOpen] = useState({ status: true, platform: true, genre: true });
 
-    const GameCard = ({ game, index }: { game: typeof games[0], index: number }) => {
+    const GameCard = ({ game }: { game: typeof games[0] }) => {
         const [currentSlide, setCurrentSlide] = useState(0);
         const [isPaused, setIsPaused] = useState(false);
+        const hasPlayableBuild = Boolean(game.playLink);
+        const isInDevelopment = game.status === "In Development";
+        const primaryLink = game.playLink ?? game.github;
+        const statusDotClass = game.status === "In Development" ? "bg-amber-400" : "bg-green-400";
 
         useEffect(() => {
-            if (isPaused) return;
+            if (isPaused || !hasPlayableBuild) return;
             const interval = setInterval(() => {
                 setCurrentSlide((prev) => (prev + 1) % game.screenshots.length);
             }, 4000);
             return () => clearInterval(interval);
-        }, [currentSlide, isPaused, game.screenshots.length]);
+        }, [currentSlide, isPaused, game.screenshots.length, hasPlayableBuild]);
 
         const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % game.screenshots.length);
         const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + game.screenshots.length) % game.screenshots.length);
@@ -100,62 +115,75 @@ const Games = () => {
                 transition={{ duration: 0.4, ease: [0.25, 1, 0.5, 1] }} // smooth spring
                 className="bg-gray-900 border border-white/5 hover:border-white/10 shadow-soft hover:shadow-soft-xl rounded-2xl overflow-hidden flex flex-col group/card relative"
             >
-                {/* Screenshot Slideshow */}
-                <div
-                    className="relative h-56 overflow-hidden bg-gray-950"
-                    onMouseEnter={() => setIsPaused(true)}
-                    onMouseLeave={() => setIsPaused(false)}
-                >
-                    <AnimatePresence mode="wait">
-                        <motion.img
-                            key={currentSlide}
-                            src={game.screenshots[currentSlide]}
-                            alt={`${game.title} screenshot ${currentSlide + 1}`}
-                            className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover/card:scale-105"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            transition={{ duration: 0.4 }}
-                        />
-                    </AnimatePresence>
-
-                    {/* Overlay gradient for readability */}
-                    <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-gray-900 to-transparent opacity-80 z-10" />
-
-                    {/* Status Badge */}
-                    <div className="absolute top-4 right-4 bg-white/10 backdrop-blur-md border border-white/10 text-white text-xs font-semibold px-2.5 py-1 rounded-full z-20 shadow-soft">
-                        <span className="flex items-center gap-1.5">
-                            <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-                            {game.status}
-                        </span>
-                    </div>
-
-                    {/* Navigation Arrows */}
-                    <button
-                        onClick={prevSlide}
-                        className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 backdrop-blur-md text-white p-2 rounded-full opacity-0 group-hover/card:opacity-100 transition-all duration-300 z-20 border border-white/5 hover:border-white/20 select-none"
+                {/* Hero media */}
+                {hasPlayableBuild ? (
+                    <div
+                        className="relative h-56 overflow-hidden bg-gray-950"
+                        onMouseEnter={() => setIsPaused(true)}
+                        onMouseLeave={() => setIsPaused(false)}
                     >
-                        <ChevronLeft size={18} />
-                    </button>
-                    <button
-                        onClick={nextSlide}
-                        className="absolute right-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 backdrop-blur-md text-white p-2 rounded-full opacity-0 group-hover/card:opacity-100 transition-all duration-300 z-20 border border-white/5 hover:border-white/20 select-none"
-                    >
-                        <ChevronRight size={18} />
-                    </button>
-
-                    {/* Slide Indicators */}
-                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5 z-20">
-                        {game.screenshots.map((_, idx) => (
-                            <button
-                                key={idx}
-                                onClick={() => setCurrentSlide(idx)}
-                                className={`h-1.5 rounded-full transition-all duration-300 ${idx === currentSlide ? 'bg-white w-5' : 'bg-white/40 hover:bg-white/70 w-1.5'
-                                    }`}
+                        <AnimatePresence mode="wait">
+                            <motion.img
+                                key={currentSlide}
+                                src={game.screenshots[currentSlide]}
+                                alt={`${game.title} screenshot ${currentSlide + 1}`}
+                                className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover/card:scale-105"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                transition={{ duration: 0.4 }}
                             />
-                        ))}
+                        </AnimatePresence>
+
+                        <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-gray-900 to-transparent opacity-80 z-10" />
+
+                        <div className="absolute top-4 right-4 bg-white/10 backdrop-blur-md border border-white/10 text-white text-xs font-semibold px-2.5 py-1 rounded-full z-20 shadow-soft">
+                            <span className="flex items-center gap-1.5">
+                                <span className={`w-1.5 h-1.5 rounded-full animate-pulse ${statusDotClass}`} />
+                                {game.status}
+                            </span>
+                        </div>
+
+                        <button
+                            onClick={prevSlide}
+                            className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 backdrop-blur-md text-white p-2 rounded-full opacity-0 group-hover/card:opacity-100 transition-all duration-300 z-20 border border-white/5 hover:border-white/20 select-none"
+                        >
+                            <ChevronLeft size={18} />
+                        </button>
+                        <button
+                            onClick={nextSlide}
+                            className="absolute right-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 backdrop-blur-md text-white p-2 rounded-full opacity-0 group-hover/card:opacity-100 transition-all duration-300 z-20 border border-white/5 hover:border-white/20 select-none"
+                        >
+                            <ChevronRight size={18} />
+                        </button>
+
+                        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5 z-20">
+                            {game.screenshots.map((_, idx) => (
+                                <button
+                                    key={idx}
+                                    onClick={() => setCurrentSlide(idx)}
+                                    className={`h-1.5 rounded-full transition-all duration-300 ${idx === currentSlide ? 'bg-white w-5' : 'bg-white/40 hover:bg-white/70 w-1.5'
+                                        }`}
+                                />
+                            ))}
+                        </div>
                     </div>
-                </div>
+                ) : (
+                    <div className="relative h-56 overflow-hidden bg-gradient-to-br from-[#20132e] via-[#10213b] to-[#0f172a]">
+                        <div className="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_20%_20%,#8b5cf6_0%,transparent_40%),radial-gradient(circle_at_80%_30%,#3b82f6_0%,transparent_35%)]" />
+                        <div className="absolute top-4 right-4 bg-white/10 backdrop-blur-md border border-white/10 text-white text-xs font-semibold px-2.5 py-1 rounded-full z-20 shadow-soft">
+                            <span className="flex items-center gap-1.5">
+                                <span className={`w-1.5 h-1.5 rounded-full animate-pulse ${statusDotClass}`} />
+                                {game.status}
+                            </span>
+                        </div>
+                        <div className="relative z-10 h-full px-6 py-5 flex flex-col justify-end">
+                            <p className="text-xs uppercase tracking-[0.2em] text-white/60 mb-2">Development Preview</p>
+                            <h4 className="text-xl font-serif font-semibold text-white">Runes n Dungeons</h4>
+                            <p className="text-sm text-white/70 mt-1">Visual assets are in production. Follow development on GitHub.</p>
+                        </div>
+                    </div>
+                )}
 
                 <div className="p-7 flex flex-col flex-grow relative">
                     <h3 className="text-2xl font-bold text-white mb-1 font-serif tracking-tight">{game.title}</h3>
@@ -163,6 +191,11 @@ const Games = () => {
                     <p className="text-gray-400 text-sm mb-6 leading-relaxed flex-grow">
                         {game.description}
                     </p>
+                    {isInDevelopment && game.milestone && (
+                        <p className="mb-5 text-xs font-medium text-amber-300/90">
+                            {game.milestone}
+                        </p>
+                    )}
 
                     <div className="flex flex-wrap gap-2 mb-8">
                         {game.platforms.map(platform => (
@@ -172,14 +205,22 @@ const Games = () => {
 
                     <div className={`grid ${game.github ? 'grid-cols-2' : 'grid-cols-1'} gap-3 mt-auto`}>
                         <a
-                            href={game.link}
+                            href={primaryLink}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex items-center justify-center gap-2 py-2.5 bg-white text-gray-950 rounded-lg font-semibold hover:bg-gray-100 transition-all text-sm shadow-soft hover:shadow-soft-lg transform hover:-translate-y-0.5"
                         >
-                            <Play size={16} className="fill-current" /> Play Now
+                            {hasPlayableBuild ? (
+                                <>
+                                    <Play size={16} className="fill-current" /> Play Now
+                                </>
+                            ) : (
+                                <>
+                                    <Github size={16} /> View Project
+                                </>
+                            )}
                         </a>
-                        {game.github && (
+                        {game.github && hasPlayableBuild && (
                             <a
                                 href={game.github}
                                 target="_blank"
@@ -300,8 +341,8 @@ const Games = () => {
                     Showing {filteredGames.length} {filteredGames.length === 1 ? 'game' : 'games'}
                 </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {filteredGames.map((game, index) => (
-                        <GameCard key={game.id} game={game} index={index} />
+                    {filteredGames.map((game) => (
+                        <GameCard key={game.id} game={game} />
                     ))}
                 </div>
             </div>
