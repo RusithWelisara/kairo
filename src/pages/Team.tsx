@@ -6,6 +6,7 @@ import sasathPhoto from '../assests/members/Sasath Ramawikrama.jpg';
 import rusithPhoto from '../assests/members/Rusith Welisara.jpg';
 import thenuraPhoto from '../assests/members/Thenura Sathmira.jpg';
 import superbroPhoto from '../assests/members/SuperBro.jpg';
+import lalinduPhoto from '../assests/members/Lalindu Oshana.png';
 
 const Team = () => {
     const teamMembers = [
@@ -37,7 +38,7 @@ const Team = () => {
             name: "Lalindu Oshana",
             role: "Story Teller",
             bio: "Weaving the narratives that give soul to our dream realms.",
-            avatar: "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=300"
+            avatar: lalinduPhoto
         },
         {
             name: "SuperBroooo",
@@ -50,11 +51,11 @@ const Team = () => {
     return (
         <div className="min-h-screen pt-32 pb-20 px-6 max-w-[1400px] mx-auto">
             {/* Header */}
-            <div className="max-w-3xl mb-20">
+            <div className="mb-20 max-w-3xl">
                 <motion.h1
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="text-5xl md:text-7xl font-bold mb-6 text-white tracking-tight font-serif"
+                    className="mb-6 font-serif text-5xl font-bold tracking-tight text-white md:text-7xl"
                 >
                     The Team
                 </motion.h1>
@@ -62,14 +63,14 @@ const Team = () => {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1 }}
-                    className="text-lg md:text-xl text-gray-400 leading-relaxed font-light"
+                    className="text-lg font-light leading-relaxed text-gray-400 md:text-xl"
                 >
                     The minds behind KAIRO. Students by day, game developers by night — united by a shared passion for crafting immersive worlds.
                 </motion.p>
             </div>
 
             {/* Team Grid */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                 {teamMembers.map((member, index) => (
                     <motion.div
                         key={index}
@@ -78,22 +79,22 @@ const Team = () => {
                         viewport={{ once: true }}
                         transition={{ delay: index * 0.08, duration: 0.4, ease: [0.25, 1, 0.5, 1] }}
                         whileHover={{ y: -6 }}
-                        className="bg-gray-900 rounded-2xl p-8 border border-white/5 hover:border-white/10 shadow-soft hover:shadow-soft-xl transition-all duration-300 group"
+                        className="p-8 bg-gray-900 rounded-2xl border transition-all duration-300 border-white/5 hover:border-white/10 shadow-soft hover:shadow-soft-xl group"
                     >
-                        <div className="flex items-start gap-5 mb-5">
-                            <div className="relative w-16 h-16 flex-shrink-0">
+                        <div className="flex gap-5 items-start mb-5">
+                            <div className="relative flex-shrink-0 w-16 h-16">
                                 <img
                                     src={member.avatar}
                                     alt={member.name}
-                                    className="w-full h-full rounded-xl object-cover border border-white/10 group-hover:border-white/20 transition-colors"
+                                    className="object-cover w-full h-full rounded-xl border transition-colors border-white/10 group-hover:border-white/20"
                                 />
                             </div>
                             <div className="min-w-0">
                                 <h3 className="text-lg font-semibold text-white mb-0.5 tracking-tight font-serif">{member.name}</h3>
-                                <p className="text-gray-400 text-sm font-medium">{member.role}</p>
+                                <p className="text-sm font-medium text-gray-400">{member.role}</p>
                             </div>
                         </div>
-                        <p className="text-gray-500 text-sm leading-relaxed">{member.bio}</p>
+                        <p className="text-sm leading-relaxed text-gray-500">{member.bio}</p>
                     </motion.div>
                 ))}
             </div>
