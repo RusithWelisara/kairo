@@ -43,7 +43,7 @@ const Team = () => {
         {
             name: "SuperBroooo",
             role: "Artist",
-            bio: "Adding visual flair and character to our pixelated adventures.",
+            bio: "Adding visual flair and character to our pixelated font.",
             avatar: superbroPhoto
         }
     ];
