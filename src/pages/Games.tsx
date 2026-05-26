@@ -14,10 +14,29 @@ import cursed2 from '../assests/games/cursed adventure/fnEX_O.png';
 import cursed3 from '../assests/games/cursed adventure/q9gVRx.png';
 import cursed4 from '../assests/games/cursed adventure/uV2izH.png';
 
+// Import Liar screenshots
+import liar1 from '../assests/games/liar/1.png';
+import liar2 from '../assests/games/liar/2.png';
+import liar3 from '../assests/games/liar/3.png';
+import liar4 from '../assests/games/liar/4.png';
+import liar5 from '../assests/games/liar/5.png';
+import liar6 from '../assests/games/liar/6.png';
+import liar7 from '../assests/games/liar/7.png';
+
 const Games = () => {
     const games = [
         {
             id: 1,
+            title: "Liar",
+            genre: "Horror",
+            description: "A horror game built around guilt, memory, and betrayal inside a game that doesn't exist.",
+            screenshots: [liar1, liar2, liar3, liar4, liar5, liar6, liar7],
+            status: "Game Jam Product",
+            platforms: ["PC"],
+            playLink: "https://team-kairo.itch.io/liar"
+        },
+        {
+            id: 2,
             title: "Floatlands",
             genre: "Adventure",
             description: "Floatlands is our first completed title — a dreamlike platformer where Pedro journeys across floating worlds to rescue Sue. Originally created for EXE 2025.",
@@ -28,7 +47,7 @@ const Games = () => {
             github: "https://github.com/KingSalagoya/floatlands"
         },
         {
-            id: 2,
+            id: 3,
             title: "Cursed Adventure",
             genre: "Action-Adventure",
             description: "A mysterious and challenging journey through cursed dungeon. Uncover secrets and survive the dangers that lurk in the shadows.",
@@ -39,7 +58,7 @@ const Games = () => {
             github: "https://github.com/KingSalagoya/The-Cursed-Adventure"
         },
         {
-            id: 3,
+            id: 4,
             title: "Runes n Dungeons",
             genre: "Dungeon Crawler RPG",
             description: "A new KAIRO project where players explore rune-powered dungeons, battle dangerous enemies, and evolve their build as they descend deeper.",
@@ -48,7 +67,7 @@ const Games = () => {
             platforms: ["PC"],
             milestone: "Current milestone: core combat and dungeon loop prototype",
             github: "https://github.com/KingSalagoya/Runes-n-Dungeons"
-        }
+        },
     ];
 
     // Multi-select filter state
@@ -113,7 +132,7 @@ const Games = () => {
                 animate={{ opacity: 1, y: 0 }}
                 whileHover={{ y: -8 }}
                 transition={{ duration: 0.4, ease: [0.25, 1, 0.5, 1] }} // smooth spring
-                className="bg-gray-900 border border-white/5 hover:border-white/10 shadow-soft hover:shadow-soft-xl rounded-2xl overflow-hidden flex flex-col group/card relative"
+                className="relative flex flex-col overflow-hidden bg-gray-900 border border-white/5 hover:border-white/10 shadow-soft hover:shadow-soft-xl rounded-2xl group/card"
             >
                 {/* Hero media */}
                 {hasPlayableBuild ? (
@@ -127,7 +146,7 @@ const Games = () => {
                                 key={currentSlide}
                                 src={game.screenshots[currentSlide]}
                                 alt={`${game.title} screenshot ${currentSlide + 1}`}
-                                className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover/card:scale-105"
+                                className="object-cover w-full h-full transition-transform duration-700 ease-out group-hover/card:scale-105"
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
@@ -135,7 +154,7 @@ const Games = () => {
                             />
                         </AnimatePresence>
 
-                        <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-gray-900 to-transparent opacity-80 z-10" />
+                        <div className="absolute inset-x-0 bottom-0 z-10 h-24 bg-gradient-to-t from-gray-900 to-transparent opacity-80" />
 
                         <div className="absolute top-4 right-4 bg-white/10 backdrop-blur-md border border-white/10 text-white text-xs font-semibold px-2.5 py-1 rounded-full z-20 shadow-soft">
                             <span className="flex items-center gap-1.5">
@@ -146,13 +165,13 @@ const Games = () => {
 
                         <button
                             onClick={prevSlide}
-                            className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 backdrop-blur-md text-white p-2 rounded-full opacity-0 group-hover/card:opacity-100 transition-all duration-300 z-20 border border-white/5 hover:border-white/20 select-none"
+                            className="absolute z-20 p-2 text-white transition-all duration-300 -translate-y-1/2 border rounded-full opacity-0 select-none left-3 top-1/2 bg-black/40 hover:bg-black/60 backdrop-blur-md group-hover/card:opacity-100 border-white/5 hover:border-white/20"
                         >
                             <ChevronLeft size={18} />
                         </button>
                         <button
                             onClick={nextSlide}
-                            className="absolute right-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 backdrop-blur-md text-white p-2 rounded-full opacity-0 group-hover/card:opacity-100 transition-all duration-300 z-20 border border-white/5 hover:border-white/20 select-none"
+                            className="absolute z-20 p-2 text-white transition-all duration-300 -translate-y-1/2 border rounded-full opacity-0 select-none right-3 top-1/2 bg-black/40 hover:bg-black/60 backdrop-blur-md group-hover/card:opacity-100 border-white/5 hover:border-white/20"
                         >
                             <ChevronRight size={18} />
                         </button>
@@ -177,18 +196,18 @@ const Games = () => {
                                 {game.status}
                             </span>
                         </div>
-                        <div className="relative z-10 h-full px-6 py-5 flex flex-col justify-end">
+                        <div className="relative z-10 flex flex-col justify-end h-full px-6 py-5">
                             <p className="text-xs uppercase tracking-[0.2em] text-white/60 mb-2">Development Preview</p>
-                            <h4 className="text-xl font-serif font-semibold text-white">Runes n Dungeons</h4>
-                            <p className="text-sm text-white/70 mt-1">Visual assets are in production. Follow development on GitHub.</p>
+                            <h4 className="font-serif text-xl font-semibold text-white">Runes n Dungeons</h4>
+                            <p className="mt-1 text-sm text-white/70">Visual assets are in production. Follow development on GitHub.</p>
                         </div>
                     </div>
                 )}
 
-                <div className="p-7 flex flex-col flex-grow relative">
-                    <h3 className="text-2xl font-bold text-white mb-1 font-serif tracking-tight">{game.title}</h3>
-                    <p className="text-gray-400 text-sm font-medium mb-4">{game.genre}</p>
-                    <p className="text-gray-400 text-sm mb-6 leading-relaxed flex-grow">
+                <div className="relative flex flex-col flex-grow p-7">
+                    <h3 className="mb-1 font-serif text-2xl font-bold tracking-tight text-white">{game.title}</h3>
+                    <p className="mb-4 text-sm font-medium text-gray-400">{game.genre}</p>
+                    <p className="flex-grow mb-6 text-sm leading-relaxed text-gray-400">
                         {game.description}
                     </p>
                     {isInDevelopment && game.milestone && (
@@ -239,28 +258,28 @@ const Games = () => {
     return (
         <div className="min-h-screen pt-32 pb-20 px-6 max-w-[1400px] mx-auto flex gap-10">
             {/* Sidebar Filters */}
-            <aside className="w-full max-w-xs bg-gray-900/80 rounded-2xl p-6 border border-white/5 flex flex-col gap-6 h-fit sticky top-32">
+            <aside className="sticky flex flex-col w-full max-w-xs gap-6 p-6 border bg-gray-900/80 rounded-2xl border-white/5 h-fit top-32">
                 <div className="flex items-center justify-between mb-2">
                     <span className="text-lg font-semibold text-white">Filters</span>
-                    <button onClick={resetFilters} className="text-blue-400 text-sm hover:underline">Reset filters</button>
+                    <button onClick={resetFilters} className="text-sm text-blue-400 hover:underline">Reset filters</button>
                 </div>
                 {/* Status Filter */}
                 <div>
-                    <button className="w-full flex justify-between items-center py-2 text-gray-200 font-medium" onClick={() => setOpen(o => ({ ...o, status: !o.status }))}>
+                    <button className="flex items-center justify-between w-full py-2 font-medium text-gray-200" onClick={() => setOpen(o => ({ ...o, status: !o.status }))}>
                         Status
                         <span>{open.status ? <ChevronDown size={18} /> : <ChevronArrowRight size={18} />}</span>
                     </button>
                     <div
                         className={`transition-all duration-300 overflow-hidden ${open.status ? 'max-h-40 opacity-100 mt-1' : 'max-h-0 opacity-0'}`}
                     >
-                        <div className="pl-2 flex flex-col gap-2">
+                        <div className="flex flex-col gap-2 pl-2">
                             {statuses.map(status => (
-                                <label key={status} className="flex items-center gap-2 cursor-pointer text-gray-300">
+                                <label key={status} className="flex items-center gap-2 text-gray-300 cursor-pointer">
                                     <input
                                         type="checkbox"
                                         checked={statusFilter.includes(status)}
                                         onChange={() => toggleFilter(statusFilter, setStatusFilter, status)}
-                                        className="accent-blue-500 w-4 h-4 rounded"
+                                        className="w-4 h-4 rounded accent-blue-500"
                                     />
                                     {status}
                                 </label>
@@ -270,21 +289,21 @@ const Games = () => {
                 </div>
                 {/* Platform Filter */}
                 <div>
-                    <button className="w-full flex justify-between items-center py-2 text-gray-200 font-medium" onClick={() => setOpen(o => ({ ...o, platform: !o.platform }))}>
+                    <button className="flex items-center justify-between w-full py-2 font-medium text-gray-200" onClick={() => setOpen(o => ({ ...o, platform: !o.platform }))}>
                         Platform
                         <span>{open.platform ? <ChevronDown size={18} /> : <ChevronArrowRight size={18} />}</span>
                     </button>
                     <div
                         className={`transition-all duration-300 overflow-hidden ${open.platform ? 'max-h-40 opacity-100 mt-1' : 'max-h-0 opacity-0'}`}
                     >
-                        <div className="pl-2 flex flex-col gap-2">
+                        <div className="flex flex-col gap-2 pl-2">
                             {platforms.map(platform => (
-                                <label key={platform} className="flex items-center gap-2 cursor-pointer text-gray-300">
+                                <label key={platform} className="flex items-center gap-2 text-gray-300 cursor-pointer">
                                     <input
                                         type="checkbox"
                                         checked={platformFilter.includes(platform)}
                                         onChange={() => toggleFilter(platformFilter, setPlatformFilter, platform)}
-                                        className="accent-blue-500 w-4 h-4 rounded"
+                                        className="w-4 h-4 rounded accent-blue-500"
                                     />
                                     {platform}
                                 </label>
@@ -294,21 +313,21 @@ const Games = () => {
                 </div>
                 {/* Genre Filter */}
                 <div>
-                    <button className="w-full flex justify-between items-center py-2 text-gray-200 font-medium" onClick={() => setOpen(o => ({ ...o, genre: !o.genre }))}>
+                    <button className="flex items-center justify-between w-full py-2 font-medium text-gray-200" onClick={() => setOpen(o => ({ ...o, genre: !o.genre }))}>
                         Genre
                         <span>{open.genre ? <ChevronDown size={18} /> : <ChevronArrowRight size={18} />}</span>
                     </button>
                     <div
                         className={`transition-all duration-300 overflow-hidden ${open.genre ? 'max-h-40 opacity-100 mt-1' : 'max-h-0 opacity-0'}`}
                     >
-                        <div className="pl-2 flex flex-col gap-2">
+                        <div className="flex flex-col gap-2 pl-2">
                             {genres.map(genre => (
-                                <label key={genre} className="flex items-center gap-2 cursor-pointer text-gray-300">
+                                <label key={genre} className="flex items-center gap-2 text-gray-300 cursor-pointer">
                                     <input
                                         type="checkbox"
                                         checked={genreFilter.includes(genre)}
                                         onChange={() => toggleFilter(genreFilter, setGenreFilter, genre)}
-                                        className="accent-blue-500 w-4 h-4 rounded"
+                                        className="w-4 h-4 rounded accent-blue-500"
                                     />
                                     {genre}
                                 </label>
@@ -324,7 +343,7 @@ const Games = () => {
                     <motion.h1
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="text-5xl md:text-7xl font-bold mb-6 text-white tracking-tight font-serif"
+                        className="mb-6 font-serif text-5xl font-bold tracking-tight text-white md:text-7xl"
                     >
                         Our Catalog
                     </motion.h1>
@@ -332,15 +351,15 @@ const Games = () => {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.1 }}
-                        className="text-lg md:text-xl text-gray-400 leading-relaxed font-light"
+                        className="text-lg font-light leading-relaxed text-gray-400 md:text-xl"
                     >
                         Discover the immersive worlds we've built. Each title represents our commitment to pixel perfection, precise mechanics, and atmospheric storytelling.
                     </motion.p>
                 </div>
-                <div className="mb-6 text-gray-300 text-sm font-medium">
+                <div className="mb-6 text-sm font-medium text-gray-300">
                     Showing {filteredGames.length} {filteredGames.length === 1 ? 'game' : 'games'}
                 </div>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                     {filteredGames.map((game) => (
                         <GameCard key={game.id} game={game} />
                     ))}
