@@ -127,22 +127,27 @@ const Home = () => {
                             className="flex-1 space-y-8"
                         >
                             <div>
+                                {/* 
                                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-6">
                                     <span className="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
                                     <span className="text-xs font-medium text-gray-300 tracking-wide uppercase">Featured Meetup</span>
                                 </div>
+                                */}
+                           
                                 <h2 className="text-4xl md:text-5xl font-serif text-white tracking-tight mb-4 leading-tight">First Team Meetup Concluded!</h2>
                                 <p className="text-gray-400 text-lg leading-relaxed font-light">
                                     We successfully held our very first team meetup in 2026! It was a day of collaboration, creativity, and team spirit—laying the foundation for even greater achievements together.
                                 </p>
                             </div>
 
+                            {/*
                             <a href="#" className="inline-flex items-center gap-2 text-white font-medium group hover:text-gray-300 transition-colors">
                                 <span className="bg-white/10 rounded-full p-2.5 group-hover:bg-white/20 transition-colors">
                                     <Play size={16} className="fill-current" />
                                 </span>
                                 See Meetup Highlights
                             </a>
+                            */}
                         </motion.div>
                     </div>
                 </div>

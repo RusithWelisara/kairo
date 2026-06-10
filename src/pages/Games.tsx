@@ -111,7 +111,6 @@ const Games = () => {
         const hasPlayableBuild = Boolean(game.playLink);
         const isInDevelopment = game.status === "In Development";
         const primaryLink = game.playLink ?? game.github;
-        const statusDotClass = game.status === "In Development" ? "bg-amber-400" : "bg-green-400";
 
         useEffect(() => {
             if (isPaused || !hasPlayableBuild) return;
@@ -156,13 +155,6 @@ const Games = () => {
 
                         <div className="absolute inset-x-0 bottom-0 z-10 h-24 bg-gradient-to-t from-gray-900 to-transparent opacity-80" />
 
-                        <div className="absolute top-4 right-4 bg-white/10 backdrop-blur-md border border-white/10 text-white text-xs font-semibold px-2.5 py-1 rounded-full z-20 shadow-soft">
-                            <span className="flex items-center gap-1.5">
-                                <span className={`w-1.5 h-1.5 rounded-full animate-pulse ${statusDotClass}`} />
-                                {game.status}
-                            </span>
-                        </div>
-
                         <button
                             onClick={prevSlide}
                             className="absolute z-20 p-2 text-white transition-all duration-300 -translate-y-1/2 border rounded-full opacity-0 select-none left-3 top-1/2 bg-black/40 hover:bg-black/60 backdrop-blur-md group-hover/card:opacity-100 border-white/5 hover:border-white/20"
@@ -190,12 +182,6 @@ const Games = () => {
                 ) : (
                     <div className="relative h-56 overflow-hidden bg-gradient-to-br from-[#20132e] via-[#10213b] to-[#0f172a]">
                         <div className="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_20%_20%,#8b5cf6_0%,transparent_40%),radial-gradient(circle_at_80%_30%,#3b82f6_0%,transparent_35%)]" />
-                        <div className="absolute top-4 right-4 bg-white/10 backdrop-blur-md border border-white/10 text-white text-xs font-semibold px-2.5 py-1 rounded-full z-20 shadow-soft">
-                            <span className="flex items-center gap-1.5">
-                                <span className={`w-1.5 h-1.5 rounded-full animate-pulse ${statusDotClass}`} />
-                                {game.status}
-                            </span>
-                        </div>
                         <div className="relative z-10 flex flex-col justify-end h-full px-6 py-5">
                             <p className="text-xs uppercase tracking-[0.2em] text-white/60 mb-2">Development Preview</p>
                             <h4 className="font-serif text-xl font-semibold text-white">Runes n Dungeons</h4>
